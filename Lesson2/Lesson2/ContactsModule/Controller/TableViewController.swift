@@ -23,6 +23,7 @@ class TableViewController: UIViewController, ViewControllerTitleProtocol {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        searchController.delegate = self
         
         return searchController
     }()
@@ -148,3 +149,9 @@ extension TableViewController: UISearchResultsUpdating {
     }
 }
 
+extension TableViewController: UISearchControllerDelegate {
+    func didDismissSearchController(_ searchController: UISearchController) {
+        fetchData()
+        tableView.reloadData()
+    }
+}
