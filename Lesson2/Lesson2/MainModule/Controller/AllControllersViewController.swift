@@ -24,7 +24,6 @@ class AllControllersViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Lesson 2"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .systemBackground
         
         ContactsManager.shared.requestAccess { granted in
             if !granted {
